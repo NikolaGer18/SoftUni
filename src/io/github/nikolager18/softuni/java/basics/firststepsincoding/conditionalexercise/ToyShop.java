@@ -17,26 +17,30 @@ public class ToyShop {
         double amountMinions = Double.parseDouble(scanner.nextLine());
         double amountTrucks = Double.parseDouble(scanner.nextLine());
         double totalSumOfToys = (amountPuzzles * puzzle) + (amountTalkingDolls * talkingDoll)+ (amountTeddyBears * teddyBear) + (amountMinions * minion) + (amountTrucks * truck);
-        System.out.println(totalSumOfToys);
         double totalAmountOfToys = amountMinions + amountPuzzles + amountTrucks + amountTeddyBears + amountTalkingDolls;
-        System.out.println(totalAmountOfToys);
-        double priceReductionAfter50 = totalSumOfToys*0.25;
-        System.out.println(priceReductionAfter50);
-        double endPrice = totalSumOfToys - priceReductionAfter50;
-        System.out.println(endPrice);
-        double rent = endPrice * 0.10;
-        System.out.println(rent);
-        double winnings = endPrice - rent;
-        System.out.println(winnings);
-        double winnings2= winnings - priceVacation;
-        double money = priceVacation - winnings;
-        if (winnings > priceVacation)
-        {
-            System.out.printf("Yes! %.02f lv left.",winnings2);
+
+        if(totalAmountOfToys > 50){
+            double priceReductionAfter50 = totalSumOfToys*0.25;
+            double endPrice = totalSumOfToys - priceReductionAfter50;
+            double rent = endPrice * 0.10;
+            double winnings = endPrice - rent;
+            double winnings2= winnings - priceVacation;
+            double money = priceVacation - winnings;
+            if(winnings > priceVacation) {
+                System.out.printf("Yes! %.02f lv left.", winnings2);
+            }else {
+                System.out.printf("Not enough money! %.02f lv needed.",money);
+            }
         }
-        else if (winnings < priceVacation)
-        {
-            System.out.printf("Not enough money! %.02f lv needed.",money);
+        else if(totalAmountOfToys<50){
+            double rent = totalSumOfToys * 0.10;
+            double winnings = totalSumOfToys - rent;
+            double money = priceVacation - winnings;
+            if(winnings > priceVacation) {
+                System.out.printf("Yes! %.02f lv left.", winnings);
+            }else {
+                System.out.printf("Not enough money! %.02f lv needed.",money);
+            }
         }
     }
 }
