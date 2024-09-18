@@ -1,4 +1,4 @@
-package io.github.nikolager18.softuni.java.basics.firststepsincoding.conditional;
+package io.github.nikolager18.softuni.java.basics.firststepsincoding.conditionallab;
 
 import java.util.Scanner;
 
